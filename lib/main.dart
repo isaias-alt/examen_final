@@ -1,5 +1,5 @@
+import 'package:examen_final/counter_app/lib/main.dart';
 import 'package:flutter/material.dart';
-import 'package:calculadorita/main.dart';
 import 'package:yes_no_app/main.dart';
 
 void main() {
@@ -15,8 +15,8 @@ class MainApp extends StatelessWidget {
       title: 'Proyecto Principal',
       home: const HomePage(),
       routes: {
-        '/calculator': (context) => const CalculadoraApp(),
         '/chat': (context) => const YesNoApp(),
+        '/counter': (context) => const CounterApp(),
       },
     );
   }
@@ -34,9 +34,10 @@ class HomePage extends StatelessWidget {
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
             ElevatedButton(
-              onPressed: () => Navigator.pushNamed(context, '/calculator'),
-              child: const Text('Calculadora'),
+              onPressed: () => Navigator.pushNamed(context, '/counter'),
+              child: const Text('Contador'),
             ),
+            const SizedBox(height: 20),
             ElevatedButton(
               onPressed: () => Navigator.pushNamed(context, '/chat'),
               child: const Text('Chat'),

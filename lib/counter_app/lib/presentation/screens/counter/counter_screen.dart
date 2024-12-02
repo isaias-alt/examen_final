@@ -9,6 +9,7 @@ class CounterScreen extends StatefulWidget {
 
 class _CounterScreenState extends State<CounterScreen> {
   int clickCounter = 0;
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -46,25 +47,31 @@ class _CounterScreenState extends State<CounterScreen> {
         mainAxisAlignment: MainAxisAlignment.end,
         children: [
           CustomFloatingActionButton(
+            heroTag: 'increment',
             icon: Icons.plus_one_outlined,
             onPressed: () {
               setState(() {
-                clickCounter++;
+                if (clickCounter < 20) {
+                  clickCounter++;
+                }
               });
             },
           ),
           const SizedBox(height: 20),
           CustomFloatingActionButton(
+            heroTag: 'decrement',
             icon: Icons.exposure_minus_1_outlined,
             onPressed: () {
               setState(() {
-                if (clickCounter == 0) return;
-                clickCounter--;
+                if (clickCounter > -20) {
+                  clickCounter--;
+                }
               });
             },
           ),
           const SizedBox(height: 20),
           CustomFloatingActionButton(
+            heroTag: 'reset',
             icon: Icons.refresh_outlined,
             onPressed: () {
               setState(() {
@@ -81,16 +88,19 @@ class _CounterScreenState extends State<CounterScreen> {
 class CustomFloatingActionButton extends StatelessWidget {
   final IconData icon;
   final VoidCallback? onPressed;
+  final String heroTag;
 
   const CustomFloatingActionButton({
     super.key,
     required this.icon,
     required this.onPressed,
+    required this.heroTag,
   });
 
   @override
   Widget build(BuildContext context) {
     return FloatingActionButton(
+      heroTag: heroTag,
       onPressed: onPressed,
       child: Icon(icon),
     );

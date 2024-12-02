@@ -15,6 +15,7 @@ class MainApp extends StatelessWidget {
       debugShowCheckedModeBanner: false,
       title: 'Proyecto Principal',
       home: const HomePage(),
+      // Rutas de navegación
       routes: {
         '/chat': (context) => const YesNoApp(),
         '/counter': (context) => const CounterApp(),
@@ -23,6 +24,7 @@ class MainApp extends StatelessWidget {
   }
 }
 
+// El widget que se muestra en la pantalla principal de la aplicación con las rutas de navegación
 class HomePage extends StatelessWidget {
   const HomePage({super.key});
 

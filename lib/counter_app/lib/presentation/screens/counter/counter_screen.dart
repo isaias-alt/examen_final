@@ -51,6 +51,7 @@ class _CounterScreenState extends State<CounterScreen> {
             icon: Icons.plus_one_outlined,
             onPressed: () {
               setState(() {
+                // Si el contador es menor a 20, incrementará en 1
                 if (clickCounter < 20) {
                   clickCounter++;
                 }
@@ -63,6 +64,7 @@ class _CounterScreenState extends State<CounterScreen> {
             icon: Icons.exposure_minus_1_outlined,
             onPressed: () {
               setState(() {
+                // Si el contador es mayor a -20, decrementará en 1
                 if (clickCounter > -20) {
                   clickCounter--;
                 }

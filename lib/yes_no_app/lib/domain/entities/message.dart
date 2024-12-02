@@ -5,6 +5,7 @@ class Message {
   final String? imageUrl;
   final FromWho fromWho;
   final DateTime timestamp;
+  // agregar un atributo para marcar si el mensaje se ha leido
   bool isRead;
 
   Message({

@@ -39,6 +39,7 @@ class MyMessageBubble extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 5),
+        // Si el mensaje se ve marca true y da el visto
         if (message.isRead)
           const Icon(Icons.done_all, color: Colors.white, size: 20),
       ],

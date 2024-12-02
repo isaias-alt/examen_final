@@ -5,11 +5,13 @@ class Message {
   final String? imageUrl;
   final FromWho fromWho;
   final DateTime timestamp;
+  bool isRead;
 
   Message({
     required this.text,
     this.imageUrl,
     required this.fromWho,
     DateTime? timestamp,
+    this.isRead = false,
   }) : timestamp = timestamp ?? DateTime.now();
 }

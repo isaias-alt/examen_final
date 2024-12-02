@@ -39,6 +39,8 @@ class MyMessageBubble extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 5),
+        if (message.isRead)
+          const Icon(Icons.done_all, color: Colors.white, size: 20),
       ],
     );
   }

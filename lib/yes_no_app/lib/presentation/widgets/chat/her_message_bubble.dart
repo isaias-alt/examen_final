@@ -40,6 +40,8 @@ class HerMessageBubble extends StatelessWidget {
           ),
         ),
         const SizedBox(height: 5),
+        if (message.isRead)
+          const Icon(Icons.done_all, color: Colors.white, size: 20),
         if (message.imageUrl != null) _ImageBubbe(message.imageUrl!),
         const SizedBox(height: 10),
       ],

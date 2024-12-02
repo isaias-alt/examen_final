@@ -11,18 +11,19 @@ class ChatProvider extends ChangeNotifier {
   Future<void> sendMessage(String text) async {
     if (text.isEmpty) return;
 
-    final newMessage = Message(text: text, fromWho: FromWho.mine);
+    final newMessage = Message(text: text, fromWho: FromWho.mine, isRead: true);
     messageList.add(newMessage);
 
     if (text.contains('dias')) {
-      final herMessage = Message(text: 'Buenos dias', fromWho: FromWho.hers);
+      final herMessage =
+          Message(text: 'Buenos dias', fromWho: FromWho.hers, isRead: true);
       messageList.add(herMessage);
     } else if (text.contains('tarde')) {
-      final herMessage =
-          Message(text: 'Lo vemos en la tarde', fromWho: FromWho.hers);
+      final herMessage = Message(
+          text: 'Lo vemos en la tarde', fromWho: FromWho.hers, isRead: true);
       messageList.add(herMessage);
     } else if (text.endsWith('?')) {
-      herReply();
+      await herReply();
     }
 
     notifyListeners();
